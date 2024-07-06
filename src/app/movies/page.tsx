@@ -6,9 +6,9 @@ import { getMovies } from "@/modules/movies/application/getAll/getMovies";
 
 const apiMoviesRepository = ApiMoviesRepository()
 
-export default async function Home({searchParams: { search }}: {searchParams: { [key: string]: string | string[] | undefined }}) {
-  const movies = await getMovies(apiMoviesRepository)({ query: search as string })
+export default async function Home({ searchParams: { search } }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   console.log(search)
+  const movies = await getMovies(apiMoviesRepository)({ query: search as string })
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Link href="/">Home</Link>

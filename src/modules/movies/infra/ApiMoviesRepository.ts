@@ -16,6 +16,7 @@ export function ApiMoviesRepository(): MoviesRepository {
       .map((key) => (params?.[key] ? key + '=' + params?.[key] : key))
       .join('&');
     queryString = queryString ? `?${queryString}&api_key=${API_KEY}` : `?query=Batman&language=en&api_key=${API_KEY}`;
+    console.log({ queryString });
     const response = await fetch(`${API_URL}${queryString}`, {
       method: 'GET',
       headers: HEADERS,
